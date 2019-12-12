@@ -2,8 +2,6 @@
 <?php foreach($posts as $post) : ?>
     <h3><?= $post['title']; ?></h3>
     <small class="post-date">Posted On: <?= $post['created_at']; ?> </small> <br>
-
-//word_limiter -> helper(text)
     <?= word_limiter ($post['body'], 150); ?>
     <br>
     <br>
