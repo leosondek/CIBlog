@@ -61,4 +61,9 @@
             $this->load->view('posts/edit', $data);
             $this->load->view('templates/footer');
         }
+
+        public function update(){
+            $this->post_model->update_post();
+            redirect('posts');
+        }
     }
