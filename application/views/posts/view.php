@@ -1,12 +1,12 @@
-<h2><?php echo $post['title']; ?></h2>
+<h2><?= $post['title']; ?></h2>
 
-<small class="post-date">Posted On: <?php echo $post['created_at']; ?> </small> <br>
+<small class="post-date">Posted On: <?= $post['created_at']; ?> </small> <br>
 <div class="post-body">
-    <?php echo $post['body']; ?>
+    <?= $post['body']; ?>
 </div>
 <hr>
 
-<a class = "btn btn-default pull-left" href="<?php echo base_url(); ?>posts/edit/<?php echo $post['slug'] ?>">Edit</a>
-<?php echo form_open('posts/delete/'.$post['id']); ?>
+<a class = "btn btn-default pull-left" href="<?= base_url(); ?>posts/edit/<?= $post['slug'] ?>">Edit</a>
+<?= form_open('posts/delete/'.$post['id']); ?>
     <input type="submit" value="Delete" class="btn btn-danger">
 </form>
