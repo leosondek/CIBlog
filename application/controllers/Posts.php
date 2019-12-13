@@ -1,4 +1,5 @@
 <?php
+
     class Posts extends CI_Controller{
 
         public function index(){ 
@@ -37,26 +38,46 @@
                 $this->load->view('posts/create', $data);
                 $this->load->view('templates/footer');
             } else {
-
-                //Upload image
-                $config['upload_path'] = '.assets/images/posts';
-                $config['allowed_type'] = 'jpg|png|gif|jpeg';
-                $config['max_size'] = '2048';
-                $config['max_width'] = '2000';
-                $config['max_height'] = '2000';
-
-                $this->load->library('upload', $config);
-
-                if (!$this->upload->do_upload('postimage')){
-                    $errors = array('error' => $this->upload->display_errors());
-                    $post_image = 'noimage.jpg';
-                }else{
-                    $data = array('upload_data' => $this->upload->data());
-                    $post_image = $_FILES['postimage']['name'];
+                {
+                    $config['upload_path'] = './assets/images/posts';
+                    $config['allowed_types'] = 'gif|jpg|png';
+                    $config['max_size'] = 2000;
+                    $config['max_width'] = 1500;
+                    $config['max_height'] = 1500;
+            
+                    $this->load->library('upload', $config);
+            
+                    if (!$this->upload->do_upload('postimage')) {
+                        $error = array('error' => $this->upload->display_errors());
+            
+                        $post_image = 'noimage.jpg';
+                    } else {
+                        $data = array('image_metadata' => $this->upload->data());
+                        $post_image = $_FILES['postimage']['name'];
+                        $this->post_model->create_post($post_image);
+                        redirect('posts');
+                        
+                    }
                 }
+                // //Upload image
+                // $config['upload_path'] = '.assets/images/posts';
+                // $config['allowed_type'] = 'jpg|png|gif|jpeg';
+                // $config['max_size'] = '2048';
+                // $config['max_width'] = '2000';
+                // $config['max_height'] = '2000';
 
-                $this->post_model->create_post($post_image);
-                redirect('posts');
+                // $this->load->library('upload', $config);
+
+                // if (!$this->upload->do_upload('postimage')){
+                //     $errors = array('error' => $this->upload->display_errors()); 
+                //     $post_image = 'noimage.jpg';
+                // }else{
+                //     $data = array('upload_data' => $this->upload->data());
+                //     $post_image = $_FILES['postimage']['name'];
+                // }
+
+                // $this->post_model->create_post($post_image);
+                // redirect('posts');
 
             }
             
