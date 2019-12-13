@@ -1,6 +1,6 @@
 <h2><?= $post['title']; ?></h2>
 
-<small class="post-date">Posted On: <?= $post['created_at']; ?> </small> <br>
+<small class="post-date">Posted On: <?= $post['created_at']; ?> in </small> <br>
 <div class="post-body">
     <?= $post['body']; ?>
 </div>

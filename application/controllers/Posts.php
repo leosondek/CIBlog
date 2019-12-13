@@ -13,13 +13,12 @@
 
         public function view($slug = NULL){
             $data['post'] = $this->post_model->get_posts($slug);
-            
+
             if(empty($data['post'])){
                 show_404();
             }
             $data['title'] = $data['post']['title'];
             
-
             $this->load->view('templates/header');
             $this->load->view('posts/view', $data);
             $this->load->view('templates/footer');
@@ -38,7 +37,25 @@
                 $this->load->view('posts/create', $data);
                 $this->load->view('templates/footer');
             } else {
-                $this->post_model->create_post();
+
+                //Upload image
+                $config['upload_path'] = '.assets/images/posts';
+                $config['allowed_type'] = 'jpg|png|gif|jpeg';
+                $config['max_size'] = '2048';
+                $config['max_width'] = '2000';
+                $config['max_height'] = '2000';
+
+                $this->load->library('upload', $config);
+
+                if (!$this->upload->do_upload('postimage')){
+                    $errors = array('error' => $this->upload->display_errors());
+                    $post_image = 'noimage.jpg';
+                }else{
+                    $data = array('upload_data' => $this->upload->data());
+                    $post_image = $_FILES['postimage']['name'];
+                }
+
+                $this->post_model->create_post($post_image);
                 redirect('posts');
 
             }
