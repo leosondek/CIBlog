@@ -1,8 +1,9 @@
 <html>
     <head>
     <title>CIBLOG</title>
+    <link rel="stylesheet" href="<?= site_url();?>assets/css/style.css">
     <link rel="stylesheet" href="https://bootswatch.com/3/cerulean/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css">
+    
     <script src="https://cdn.ckeditor.com/4.13.1/standard-all/ckeditor.js"></script>
     </head>
     <body>

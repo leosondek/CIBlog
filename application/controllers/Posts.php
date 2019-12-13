@@ -50,14 +50,14 @@
                     if (!$this->upload->do_upload('postimage')) {
                         $error = array('error' => $this->upload->display_errors());
             
-                        $post_image = 'noimage.jpg';
+                        $post_image = 'noimage.png';
                     } else {
                         $data = array('image_metadata' => $this->upload->data());
                         $post_image = $_FILES['postimage']['name'];
-                        $this->post_model->create_post($post_image);
-                        redirect('posts');
                         
                     }
+                    $this->post_model->create_post($post_image);
+                        redirect('posts');
                 }
                 // //Upload image
                 // $config['upload_path'] = '.assets/images/posts';

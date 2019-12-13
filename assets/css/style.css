@@ -3,5 +3,8 @@
 	padding: 4px;
 	margin: 3px, 0, 0, 3px;
 	display: block;
-	dsad: test;
+}
+
+.post-thumb {
+	width: 100%;
 }
