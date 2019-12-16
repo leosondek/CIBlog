@@ -14,7 +14,7 @@
                 $this->load->view('posts/view', $data);
                 $this->load->view('templates/footer');
             } else {
-                $this->comment_model->create_comment('$post_id');
+                $this->comment_model->create_comment($post_id);
                 redirect('posts/'.$slug); 
             }
         }

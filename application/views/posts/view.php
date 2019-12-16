@@ -12,6 +12,20 @@
     <input type="submit" value="Delete" class="btn btn-danger">
 </form>
 <hr>
+<h3>Comments</h3>
+<?php if($comments) : ?>
+    <?php foreach($comments as $comment) : ?>
+        <div class="well">
+        <p><?= $comment['body']; ?> [by <strong><?= $comment['name'];?></strong>]</p>
+        </div>
+    <?php endforeach; ?>
+    
+<?php else : ?>
+        <p> No comments! </p>
+<?php endif; ?>
+
+
+<hr>
 <h3>Add Comment</h3>
 <?= validation_errors(); ?>
 <?= form_open('comments/create/'.$post['id']); ?>
