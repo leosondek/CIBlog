@@ -24,7 +24,6 @@
         <p> No comments! </p>
 <?php endif; ?>
 
-
 <hr>
 <h3>Add Comment</h3>
 <?= validation_errors(); ?>

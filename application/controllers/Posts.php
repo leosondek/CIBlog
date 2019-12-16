@@ -60,7 +60,10 @@
                         
                     }
                     $this->post_model->create_post($post_image);
-                        redirect('posts');
+
+                // set message
+                $this->session->set_flashdata('post_created', 'Your post has been created.');
+                redirect('posts');
                 }
                 // //Upload image
                 // $config['upload_path'] = '.assets/images/posts';
@@ -88,6 +91,7 @@
 
         public function delete($id){
             $this->post_model->delete_post($id);
+            $this->session->set_flashdata('post_delete', 'Your post has been deleted.');
             redirect('posts');
         }
 
@@ -107,6 +111,9 @@
 
         public function update(){
             $this->post_model->update_post();
+            // set message
+            $this->session->set_flashdata('post_updated', 'Your post has been updated.');
+                            
             redirect('posts');
         }
     }
