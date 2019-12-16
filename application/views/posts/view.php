@@ -11,3 +11,21 @@
 <?= form_open('posts/delete/'.$post['id']); ?>
     <input type="submit" value="Delete" class="btn btn-danger">
 </form>
+<hr>
+<h3>Add Comment</h3>
+<?= validation_errors(); ?>
+<?= form_open('comments/create/'.$post['id']); ?>
+<div class="form-group">
+    <label>Name</label>
+    <input type="text" name="name" class="form-control">
+    <label>Email</label>
+    <input type="text" name="email" class="form-control">
+    <label>Body</label>
+    <textarea type="text" name="body" class="form-control"></textarea>
+    <!-- passing slug -->
+    <input type="hidden" name="slug" value="<?= $post['slug']; ?>">
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+</div>
+
+</form>
