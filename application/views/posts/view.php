@@ -5,12 +5,13 @@
 <div class="post-body">
     <?= $post['body']; ?>
 </div>
-<hr>
-
-<a class = "btn btn-default pull-left" href="<?= base_url(); ?>posts/edit/<?= $post['slug'] ?>">Edit</a>
-<?= form_open('posts/delete/'.$post['id']); ?>
-    <input type="submit" value="Delete" class="btn btn-danger">
-</form>
+<?php if($this->session->userdata('user_id') == $post['user_id']) :?>
+    <hr>
+    <a class = "btn btn-default pull-left" href="<?= base_url(); ?>posts/edit/<?= $post['slug'] ?>">Edit</a>
+    <?= form_open('posts/delete/'.$post['id']); ?>
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form> 
+<?php endif; ?>
 <hr>
 <h3>Comments</h3>
 <?php if($comments) : ?>

@@ -51,7 +51,6 @@
                         'user_id' => $user_id,
                         'username' => $username,
                         'logged_in' => true
-
                     );
 
                     $this->session->set_userdata($user_data);

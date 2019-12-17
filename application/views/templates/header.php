@@ -52,7 +52,6 @@
             <?php if($this->session->flashdata('category_created')): ?>
                 <?= '<p class="alert alert-success">'.$this->session->flashdata('category_created').'</p>'; ?>
             <?php endif; ?>
-
             <?php if($this->session->flashdata('post_delete')): ?>
                 <?= '<p class="alert alert-success">'.$this->session->flashdata('post_delete').'</p>'; ?>
             <?php endif; ?>
