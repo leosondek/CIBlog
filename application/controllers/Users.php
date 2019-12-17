@@ -17,6 +17,7 @@
             } else {
                 // encrypt password
                 $enc_password = md5($this->input->post('password'));
+
                 $this->user_model->register($enc_password);
 
                 // set message
