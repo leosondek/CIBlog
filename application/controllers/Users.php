@@ -60,7 +60,7 @@
 
                 }else{
                     // set error
-                    $this->session->set_flashdata('login_failed', 'Loggedin Failed.');
+                    $this->session->set_flashdata('login_failed', 'Login Failed.');
                     redirect('users/login');
                 }
             }

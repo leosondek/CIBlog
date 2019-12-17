@@ -1,7 +1,7 @@
 .post-date {
 	background: #f4f4f4;
 	padding: 4px;
-	margin: 3px, 0, 0, 3px;
+	margin: 3px 0;
 	display: block;
 }
 
@@ -11,4 +11,22 @@
 
 .view-post {
 	width: 30%;
+}
+
+.pagination-link {
+	margin: 30px 0;
+}
+
+.pagination-link strong {
+	padding: 8px 13px;
+	margin: 5px;
+	background: #f4f4f4;
+	border: 1px #ccc solid;
+}
+
+a.pagination-link {
+	padding: 8px 13px;
+	margin: 5px;
+	background: #f4f4f4;
+	border: 1px #ccc solid;
 }
